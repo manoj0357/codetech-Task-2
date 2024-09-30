@@ -1,0 +1,59 @@
+def add_grade(grades):
+    name = input("Enter studdent name: ")
+    sid = int(input("Enter sid: "))
+    subject = input("Enter subject: ")
+    grade = input("Enter grade: ")
+    comments= input("enter comment: ")
+    grades.append((subject, grade))
+    print(f"Grade {grade} added for {subject}.\n")
+def calculate_average(grades):
+    if not grades:
+        return 0
+    total = sum(grade for subject, grade in grades)
+    return total / len(grades)
+def determine_letter_grade(average):
+    if average >= 90:
+        print('A')
+    elif average >= 80:
+        print('B')
+    elif average >= 70:
+        print('C')
+    elif average >= 60:
+        print('D')
+    else:
+        print('F')
+def calculate_gpa(average):
+    if average >= 90:
+        print(4.0)
+    elif average >= 80:
+        print(3.0)
+    elif average >= 70:
+        print(2.0)
+    elif average >= 60:
+        print(1.0)
+    else:
+        print(0.0)
+def display_grades(grades):
+    print("Grades:")
+    for subject, grade in grades:
+        print(f"{subject}: {grade}")
+    print()
+def main():
+    grades = []
+    while True:
+        print("1. Add Grade")
+        print("2. Display Grades")
+        print("3. Exit")
+        choice = input("Enter your choice: ")
+        
+        if choice == '1':
+            add_grade(grades)
+        elif choice == '2':
+            display_grades(grades)
+        elif choice == '3':
+            print("Exiting the program. Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please try again.\n")
+if _name_ == "_main_":
+    main()
